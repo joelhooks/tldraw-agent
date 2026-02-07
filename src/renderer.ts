@@ -84,7 +84,8 @@ export class TldrawRenderer {
     // Create shapes in tldraw
     await this.page.evaluate(
       ({ shapes, connections }) => {
-        const editor = window.tldrawEditor;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const editor = (window as any).tldrawEditor;
         if (!editor) throw new Error('Editor not available');
 
         // Color mapping to tldraw colors
@@ -182,7 +183,8 @@ export class TldrawRenderer {
     // Export based on format
     if (format === 'svg') {
       const svg = await this.page.evaluate(() => {
-        const editor = window.tldrawEditor;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const editor = (window as any).tldrawEditor;
         // Get SVG from tldraw - this is simplified, real implementation 
         // would use editor.getSvg() or similar
         const container = document.querySelector('.tl-canvas');
@@ -212,9 +214,11 @@ export class TldrawRenderer {
 }
 
 // Extend Window interface for TypeScript
+// Using any for the editor since tldraw's types are complex and we're in a browser context
 declare global {
   interface Window {
-    tldrawEditor: unknown;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    tldrawEditor: any;
     renderComplete: boolean;
   }
 }
