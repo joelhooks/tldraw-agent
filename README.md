@@ -47,7 +47,7 @@ const { path } = await agent.draw({ prompt: 'system diagram' })
 ## Environment
 
 ```bash
-export ANTHROPIC_API_KEY=sk-...
+export AI_GATEWAY_API_KEY=...  # Vercel/Cloudflare AI Gateway key
 ```
 
 ## License

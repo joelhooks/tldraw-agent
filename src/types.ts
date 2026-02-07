@@ -108,6 +108,7 @@ export type Action = z.infer<typeof ActionSchema>;
 export interface AgentConfig {
   model?: string;
   apiKey?: string;
+  gatewayUrl?: string;
   width?: number;
   height?: number;
   background?: string;

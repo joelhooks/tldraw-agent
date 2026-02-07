@@ -114,7 +114,8 @@ Examples:
   tldraw-agent draw "Microservices architecture" --width 1600 --height 1200
 
 Environment:
-  ANTHROPIC_API_KEY       Required. Your Anthropic API key.
+  AI_GATEWAY_API_KEY      Required. Your Vercel/Cloudflare AI Gateway key.
+  AI_GATEWAY_URL          Optional. Gateway URL (defaults to Cloudflare).
 `);
 }
 
