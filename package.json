@@ -1,0 +1,52 @@
+{
+  "name": "@joelhooks/tldraw-agent",
+  "version": "0.1.0",
+  "description": "Portable diagram generation using tldraw's agent capabilities",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "tldraw-agent": "./dist/cli.js"
+  },
+  "scripts": {
+    "dev": "tsx watch src/cli.ts",
+    "build": "tsup src/index.ts src/cli.ts --format esm --dts --clean",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "lint": "biome check .",
+    "format": "biome format --write ."
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0",
+    "@tldraw/editor": "^3.0.0",
+    "@tldraw/tldraw": "^3.0.0",
+    "playwright": "^1.50.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "tldraw",
+    "diagrams",
+    "ai",
+    "agent",
+    "mcp",
+    "openclaw"
+  ],
+  "author": "Joel Hooks",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joelhooks/tldraw-agent.git"
+  }
+}
